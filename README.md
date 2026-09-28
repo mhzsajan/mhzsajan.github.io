@@ -67,17 +67,26 @@ LTC timecode generator
 
 ---
 
-## 🚀 Featured work
+## 🚀 What I'm building
+
+**Open source**
 
 | Project | What it is |
 |---|---|
-| **[AbleBridgePlus](https://github.com/mhzsajan/AbleBridgePlus)** | MCP server connecting AI assistants to Ableton Live — 475 tools, local-first, MIT. Born from automating my own show prep. <br>`Python` |
-| **[stagecraft](https://github.com/mhzsajan/stagecraft)** | Automated live-show pipeline wiring Ableton + AbleSet + Videosync2 + TouchDesigner into one performance system. <br>`Python` |
-| **[nepali-lyric-video-maker](https://github.com/mhzsajan/nepali-lyric-video-maker)** | Whisper-timed Nepali lyric videos — word-by-word karaoke MP4s from a song and its lyrics, with shadow-key output for transparent live overlays. Handles Preeti-era fonts. <br>`HTML` |
-| **[songtimer](https://github.com/mhzsajan/songtimer)** | Tap-and-adjust lyric timing in the browser, with LRC export. <br>`HTML` |
-| **[enhanced-abletonbridge](https://github.com/mhzsajan/enhanced-abletonbridge)** | The earlier AbletonBridge extension that AbleBridgePlus grew out of. <br>`Python` |
+| **[AbleBridgePlus](https://github.com/mhzsajan/AbleBridgePlus)** · `Python` | MCP server giving any AI assistant 475 tools over Ableton Live. Local-first, MIT. Born from automating my own show prep. |
+| **[songtimer](https://github.com/mhzsajan/songtimer)** · `HTML` | Tap-and-adjust lyric timing in the browser with LRC export. — [try it live](https://mhzsajan.github.io/songtimer/) |
+| **[AbleBridgePlus site](https://mhzsajan.github.io/AbleBridgePlus/)** · `HTML` | A plain-English tour of the MCP bridge, if you'd rather not read a README. |
 
-> Also in the account: e-commerce work built on **PickBazar**/**SwitchGod** (`TypeScript`).
+**Private — the band's tooling, not open yet**
+
+| Project | What it is |
+|---|---|
+| `stagecraft` · `Python` | Live-show pipeline wiring Ableton + AbleSet + Videosync2 + TouchDesigner into one performance system. |
+| `nepali-lyric-video-maker` · `HTML` | Whisper-timed Nepali lyric videos — word-by-word karaoke MP4s, with shadow-key output for transparent live overlays. Handles Preeti-era fonts. |
+| `StageCraft-Graphified` / `-RE` · `HTML` `Python` | Graphical companion and reverse-engineering toolkit for the pipeline. |
+| `switchgod-bazar` / `pickbazar` · `TypeScript` | E-commerce platform work. |
+
+*Also `enhanced-abletonbridge` — the earlier AbletonBridge extension that AbleBridgePlus grew out of.*
 
 ---
 
