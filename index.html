@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mhzsajan — music-tech builder</title>
+<meta name="description" content="Personal profile and projects of mhzsajan — Ableton Live automation, AI music tooling, and Nepali music-tech.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0e0e13; --card: #16161e; --border: #262633;
+    --text: #e8e8ef; --dim: #8b8b9e; --accent: #4f6ef7; --green: #18b26b;
+  }
+  body {
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: var(--bg); color: var(--text);
+    min-height: 100vh; line-height: 1.6;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 48px 20px 80px; }
+
+  /* Hero */
+  .hero { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin-bottom: 40px; }
+  .avatar {
+    width: 108px; height: 108px; border-radius: 50%;
+    border: 3px solid var(--accent); box-shadow: 0 0 40px rgba(79,110,247,.35);
+  }
+  .hero h1 { font-size: 2.1rem; font-weight: 700; letter-spacing: -.02em; }
+  .hero .tag { color: var(--accent); font-weight: 600; }
+  .hero p { color: var(--dim); max-width: 640px; }
+  .hero-links { display: flex; gap: 14px; margin-top: 10px; flex-wrap: wrap; }
+  .hero-links a { color: var(--dim); text-decoration: none; font-size: .9rem; }
+  .hero-links a:hover { color: var(--text); }
+
+  h2 {
+    font-size: 1.05rem; text-transform: uppercase; letter-spacing: .12em;
+    color: var(--dim); margin: 36px 0 16px; font-weight: 600;
+  }
+
+  /* Featured */
+  .featured { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 20px; display: block;
+    text-decoration: none; color: var(--text); transition: transform .15s, border-color .15s;
+  }
+  a.card:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .card h3 { font-size: 1.1rem; margin-bottom: 6px; }
+  .card p { color: var(--dim); font-size: .88rem; }
+  .card .meta { margin-top: 12px; font-size: .78rem; color: var(--green); }
+  .card .demo { color: var(--accent); font-size: .82rem; }
+
+  /* Repo grid */
+  #repos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+  .repo {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 16px 18px; text-decoration: none; color: var(--text);
+    display: flex; flex-direction: column; gap: 6px; transition: border-color .15s;
+  }
+  .repo:hover { border-color: var(--accent); }
+  .repo .name { font-weight: 600; font-size: .98rem; display: flex; align-items: center; gap: 8px; }
+  .repo .lang { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .repo .desc { color: var(--dim); font-size: .84rem; flex: 1; }
+  .repo .stats { font-size: .76rem; color: #6d6d80; display: flex; gap: 14px; }
+  #repoStatus { color: #6d6d80; font-size: .85rem; }
+
+  /* Now / private work */
+  .now { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+  .now ul { list-style: none; margin-top: 8px; }
+  .now li { padding: 6px 0; color: var(--dim); font-size: .9rem; border-bottom: 1px dashed #22222c; }
+  .now li:last-child { border-bottom: none; }
+  .now li strong { color: var(--text); }
+  .badge {
+    display: inline-block; font-size: .68rem; padding: 1px 8px; border-radius: 10px;
+    background: #2a2a38; color: #9aa5ff; margin-left: 8px; vertical-align: middle;
+  }
+
+  footer { margin-top: 56px; color: #55555f; font-size: .8rem; text-align: center; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <img class="avatar" src="https://avatars.githubusercontent.com/u/175527725?v=4" alt="mhzsajan avatar">
+    <div>
+      <h1>mhzsajan <span class="tag">· music-tech builder</span></h1>
+      <p>I build tools that sit between <strong>music</strong> and <strong>machines</strong> —
+      Ableton Live automation, AI-assisted live show control, and Nepali music-tech.</p>
+      <div class="hero-links">
+        <a href="https://github.com/mhzsajan">GitHub ↗</a>
+        <a href="https://mhzsajan.github.io/songtimer/">Song Timer</a>
+        <a href="https://switchgod.com.np">SwitchGod ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <h2>Featured</h2>
+  <div class="featured">
+    <a class="card" href="https://mhzsajan.github.io/songtimer/">
+      <h3>🎵 Song Timer</h3>
+      <p>Tap lyric timings while your song plays, nudge them, karaoke-preview, export standard .lrc.
+      Keyboard-first, offline-capable, audio never leaves your device.</p>
+      <div class="meta">HTML · <span class="demo">▶ Try it live</span></div>
+    </a>
+    <a class="card" href="https://github.com/mhzsajan/AbleBridgePlus">
+      <h3>🎛️ AbleBridgePlus</h3>
+      <p>MCP bridge connecting AI/LLM tools to Ableton Live — 448 tools for AI-assisted music
+      production and live show control.</p>
+      <div class="meta">Python · MCP · Ableton</div>
+    </a>
+  </div>
+
+  <h2>All public repos</h2>
+  <div id="repos"><span id="repoStatus">Loading from GitHub…</span></div>
+
+  <h2>Currently building</h2>
+  <div class="now">
+    <ul>
+      <li><strong>StageCraft</strong> — automated live-show pipeline: Ableton + AbleSet + Videosync 2 + TouchDesigner <span class="badge">private</span></li>
+      <li><strong>Nepali Lyric Video Maker</strong> — Whisper-timed word-by-word karaoke MP4s, pre-Unicode font support <span class="badge">private</span></li>
+      <li><strong>SwitchGod Bazar</strong> — e-commerce platform <span class="badge">live ↗</span></li>
+      <li><strong>Enhanced AbletonBridge</strong> — MCP bridge tuned for live performance <span class="badge">private</span></li>
+    </ul>
+  </div>
+
+  <footer>
+    <a href="https://github.com/mhzsajan">github.com/mhzsajan</a> · built with plain HTML · © 2026
+  </footer>
+</div>
+
+<script>
+(async function () {
+  const el = document.getElementById("repos");
+  try {
+    const res = await fetch("https://api.github.com/users/mhzsajan/repos?sort=pushed&per_page=100");
+    if (!res.ok) throw new Error("GitHub API " + res.status);
+    const repos = await res.json();
+    const langColors = {
+      Python: "#3572A5", HTML: "#e34c26", JavaScript: "#f1e05a",
+      TypeScript: "#3178c6", CSS: "#563d7c", Shell: "#89e051"
+    };
+    el.innerHTML = "";
+    for (const r of repos) {
+      const a = document.createElement("a");
+      a.className = "repo";
+      a.href = r.homepage || r.html_url;
+      const color = langColors[r.language] || "#8b8b9e";
+      a.innerHTML =
+        '<span class="name">' +
+          (r.language ? '<span class="lang" style="background:' + color + '"></span>' : '') +
+          r.name +
+        '</span>' +
+        '<span class="desc">' + (r.description || "No description") + '</span>' +
+        '<span class="stats">' +
+          '<span>★ ' + r.stargazers_count + '</span>' +
+          '<span>updated ' + new Date(r.pushed_at).toLocaleDateString() + '</span>' +
+        '</span>';
+      el.appendChild(a);
+    }
+  } catch (e) {
+    el.innerHTML = '<span id="repoStatus">Could not load repos — visit ' +
+      '<a href="https://github.com/mhzsajan">github.com/mhzsajan</a></span>';
+  }
+})();
+</script>
+</body>
+</html>
