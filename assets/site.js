@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  /* ── sticky nav border ─────────────────────────────────────────── */
+  /* ── sticky nav rule ─────────────────────────────────────────────── */
   var nav = document.getElementById('nav');
   function onScroll() {
     if (nav) nav.classList.toggle('stuck', window.scrollY > 8);
@@ -11,7 +11,7 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ── mobile menu ───────────────────────────────────────────────── */
+  /* ── mobile menu ─────────────────────────────────────────────────── */
   var toggle = document.getElementById('navToggle');
   var links = document.getElementById('navLinks');
   if (toggle && links) {
@@ -34,26 +34,29 @@
     });
   }
 
-  /* ── reveal sections on scroll ─────────────────────────────────── */
-  var targets = document.querySelectorAll('.block, .card, .gear-col, .rig-col, .priv li, .cbtn');
+  /* ── fade sections in as they come up ─────────────────────────────── */
+  var targets = document.querySelectorAll(
+    '.spec, .col, .rig-group, .entries > li, .gear-col, .contact > li'
+  );
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (!reduce && 'IntersectionObserver' in window && targets.length) {
     Array.prototype.forEach.call(targets, function (el) {
       el.style.opacity = '0';
-      el.style.transform = 'translateY(10px)';
-      el.style.transition = 'opacity .5s ease, transform .5s ease';
+      el.style.transform = 'translateY(8px)';
+      el.style.transition = 'opacity .45s ease, transform .45s ease';
     });
+
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry, i) {
+      entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         var el = entry.target;
-        el.style.transitionDelay = Math.min(i, 4) * 55 + 'ms';
         el.style.opacity = '1';
         el.style.transform = 'none';
         io.unobserve(el);
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
     Array.prototype.forEach.call(targets, function (el) { io.observe(el); });
   }
 })();
