@@ -10,7 +10,7 @@ I run the band's live production, and then I build the tools that make it possib
 `self-taught` `hands-on` `3+ years · all tours & shows` `16 skills`
 
 [![Website](https://img.shields.io/badge/website-mhzsajan.github.io-ff9f2e?style=flat-square&logo=github)](https://mhzsajan.github.io/)
-[![Ableton Live](https://img.shields.io/badge/ableton-live-11%2B-ff9f2e?style=flat-square&labelColor=1c1c22)](https://www.ableton.com/en/live/)
+[![Ableton Live](https://img.shields.io/badge/Ableton_Live-11%2B-ff9f2e?style=flat-square)](https://www.ableton.com/en/live/)
 
 ---
 
