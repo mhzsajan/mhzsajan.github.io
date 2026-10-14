@@ -130,6 +130,8 @@ body.is-open .stage-hint { opacity: 0; pointer-events: none; }
   background: linear-gradient(90deg, #E9E2D4 0 96%, #CFC6B4 96% 100%);
   border-radius: 3px 1px 1px 3px;
   box-shadow: 0 26px 60px rgba(0,0,0,.45);
+  /* must sit behind the pages in Z, not just in document order */
+  transform: translateZ(-2px);
 }
 
 .leaf {
@@ -146,6 +148,13 @@ body.is-open .stage-hint { opacity: 0; pointer-events: none; }
   backface-visibility: hidden; -webkit-backface-visibility: hidden;
 }
 .face-back { transform: rotateY(180deg); }
+
+/* Shut, the cover and the right inside page occupy exactly the same plane.
+   Inside preserve-3d the compositor sorts by depth rather than z-index, so
+   the page kept winning and swallowing clicks on the Open button. Rather
+   than nudge planes with translateZ, take the pages out of the picture
+   while the cover is the thing you can actually see. */
+.book[data-open="false"] .face-front { visibility: hidden; }
 
 /* ── the cover ──────────────────────────────────────────────────────────── */
 .cover { background: var(--cover); box-shadow: 0 2px 4px rgba(0,0,0,.2); }
