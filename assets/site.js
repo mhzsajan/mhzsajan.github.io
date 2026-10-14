@@ -16,6 +16,14 @@
   var LAST = leaves.length - 1;          // the back cover never turns
   var LABELS = ['Cover', '01 · 02', '03 · 04', '05 · 06'];
 
+  // Clear the reverse state once it has played, so the next forward turn
+  // starts clean. Without this a leaf can be left mid-animation.
+  leaves.forEach(function (leaf) {
+    leaf.addEventListener('animationend', function () {
+      leaf.classList.remove('unturning');
+    });
+  });
+
   var reduce = window.matchMedia &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -23,7 +31,16 @@
     var turned = parseInt(book.dataset.turned, 10) || 0;
 
     leaves.forEach(function (leaf, i) {
-      leaf.classList.toggle('turned', i < turned);
+      var shouldTurn = i < turned;
+      var isTurned = leaf.classList.contains('turned');
+      if (shouldTurn && !isTurned) {
+        leaf.classList.remove('unturning');
+        leaf.classList.add('turned');
+      } else if (!shouldTurn && isTurned) {
+        // run the same keyframes backwards rather than snapping to the start
+        leaf.classList.remove('turned');
+        leaf.classList.add('unturning');
+      }
       // Turned leaves pile up on the left, later turns on top. Un-turned
       // leaves sit on the right, earliest (the cover) on top.
       leaf.style.zIndex = i < turned ? (10 + i) : (100 - i);
