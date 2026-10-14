@@ -3,306 +3,329 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sajan Maharjan — Technical Director, Deepak Bajracharya &amp; The Rhythm Band</title>
-<meta name="description" content="Sajan Maharjan, Technical Director for Deepak Bajracharya &amp; The Rhythm Band. Live production in Ableton Live, timecode, video sync and autonomous lighting — and the open-source tools built behind it.">
+<title>Sajan Maharjan — Sound, Light &amp; Code for a live rock band</title>
+<meta name="description" content="Sajan Maharjan, Technical Director for Deepak Bajracharya &amp; The Rhythm Band in Kathmandu. I run the show, then build the tools it needed — Ableton, timecode, lighting, and the open-source software behind it.">
 <meta name="author" content="Sajan Maharjan">
-<meta name="theme-color" content="#f3efe5">
+<meta name="theme-color" content="#0B0B0D">
+<meta name="color-scheme" content="dark">
 
-<meta property="og:title" content="Sajan Maharjan — Technical Director">
-<meta property="og:description" content="Live production for Deepak Bajracharya &amp; The Rhythm Band, and the tools built behind it.">
 <meta property="og:type" content="profile">
+<meta property="og:title" content="Sajan Maharjan — Sound, Light &amp; Code">
+<meta property="og:description" content="Technical Director for Deepak Bajracharya &amp; The Rhythm Band. I run the show, then build the tools it needed.">
 <meta property="og:url" content="https://mhzsajan.github.io/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://mhzsajan.github.io/assets/profile.jpg">
+<meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml">
-<!-- v= on every asset: the Pages CDN caches these hard, and a redeploy of
-     index.html alone would otherwise leave visitors on the old CSS/JS. -->
-<link rel="stylesheet" href="assets/site.css?v=2">
+<link rel="icon" href="assets/favicon.svg?v=4" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css?v=4">
+
+<!-- Set before first paint: if JS never runs, the reveal styles never apply and
+     the page is simply visible. Link previews and print do not scroll, so they
+     get the full page. -->
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="nav" id="nav">
-  <div class="wrap bar">
+  <div class="nav-in">
     <a class="brand" href="#top">
       <span class="brand-mark" aria-hidden="true">SM</span>
       <span class="brand-name">Sajan Maharjan</span>
     </a>
 
     <nav class="nav-links" id="navLinks" aria-label="Sections">
-      <a href="#role">The work</a>
+      <a href="#work">The work</a>
       <a href="#rig">The rig</a>
       <a href="#projects">Projects</a>
-      <a href="#gear">Gear</a>
       <a href="#contact">Contact</a>
     </nav>
 
-    <div class="nav-actions">
-      <a class="btn ghost" href="https://github.com/mhzsajan" target="_blank" rel="noopener">GitHub</a>
-    </div>
-
-    <button class="nav-toggle" id="navToggle" aria-expanded="false"
-            aria-controls="navLinks" aria-label="Toggle navigation">
-      <span></span><span></span><span></span>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+      <span class="nav-toggle-bars" aria-hidden="true"><i></i><i></i></span>
+      <span class="sr">Menu</span>
     </button>
   </div>
 </header>
 
 <main id="main">
 
-  <!-- ══════════════════════════════ MASTHEAD ══════════════════════════════ -->
-  <section class="masthead" id="top">
-    <div class="wrap">
-      <div class="mast-rule" aria-hidden="true"></div>
+  <!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
+  <section class="hero" id="top">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
 
-      <p class="mast-role">Technical Director</p>
-
-      <div class="mast-grid">
-        <img class="portrait" src="assets/profile.jpg" width="176" height="176"
-             alt="Sajan Maharjan" />
-
-        <div class="mast-body">
-          <h1>Sajan Maharjan</h1>
-          <p class="band">
-            Technical Director for
-            <strong>Deepak Bajracharya &amp; The Rhythm Band</strong>
-          </p>
-          <p class="genre">Nepali rock / folk-rock · Kathmandu, Nepal</p>
-
-          <p class="standfirst">
-            I run the band's live production — audio, video, lighting and
-            timecode — and then I build the tools that make it possible.
-          </p>
-
-          <div class="hero-cta">
-            <a class="btn primary" href="#projects">See the work</a>
-            <a class="btn ghost" href="mailto:mhzsajan@gmail.com">Get in touch</a>
-          </div>
-        </div>
-      </div>
-
-      <ul class="facts">
-        <li><b>3+ years</b><span>across all tours &amp; shows</span></li>
-        <li><b>Self-taught</b><span>hands-on, no formal training</span></li>
-        <li><b>16 areas</b><span>of live responsibility</span></li>
-      </ul>
-
-      <!-- printed spec sheet, not a terminal -->
-      <aside class="spec" aria-label="Show system summary">
-        <p class="spec-head"><span>Show system</span><span>in service</span></p>
-        <ul>
-          <li><span>Playback</span><b>Ableton Live</b><i>AbleSet setlist</i></li>
-          <li><span>Vocals</span><b>VoiceLive 3 Extreme</b><i>preset-synced</i></li>
-          <li><span>Mix</span><b>Behringer WING</b><i>FOH / monitors</i></li>
-          <li><span>Video</span><b>VideoSync2</b><i>tempo-locked</i></li>
-          <li><span>Lighting</span><b>MaestroDMX</b><i>audio-reactive</i></li>
-          <li><span>Sync</span><b>LTC timecode</b><i>video + light</i></li>
-        </ul>
-      </aside>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════ THE WORK ══════════════════════════════ -->
-  <section class="section" id="role">
-    <div class="wrap">
-      <p class="kicker"><span class="num">01</span> The work</p>
-      <h2>Two jobs, one stack</h2>
-      <p class="lede">
-        Everything below is a live responsibility, not a list of things I once
-        did. Most of it exists because a show needed it and nothing off the
-        shelf did.
+    <div class="hero-in">
+      <p class="eyebrow">
+        <span>Technical Director</span>
+        <span class="dot" aria-hidden="true">·</span>
+        <span>Kathmandu, Nepal</span>
       </p>
 
-      <div class="cols">
-        <article class="col">
-          <h3>Live production</h3>
-          <dl>
-            <dt>Show operation</dt>
-            <dd>Ableton Live with AbleSet — setlist control, click tracks, tempo-synced backing.</dd>
-            <dt>Vocals &amp; guitar</dt>
-            <dd>TC-Helicon VoiceLive 3 Extreme, with automated preset switching synced to the setlist.</dd>
-            <dt>FOH &amp; monitors</dt>
-            <dd>Behringer WING — front-of-house and monitor support alongside the band's engineer.</dd>
-            <dt>Visuals</dt>
-            <dd>VideoSync2 — tempo-synced backdrop video, lyric overlays, live camera feeds, blend modes.</dd>
-            <dt>Cameras</dt>
-            <dd>iPhone via NDI/Camo, Kinect, DSLRs, GoPros, Rodecaster Video switcher.</dd>
-            <dt>Lighting</dt>
-            <dd>MaestroDMX — autonomous audio-reactive control, synced to performance.</dd>
-            <dt>Timecode</dt>
-            <dd>LTC generated and distributed to visuals and lighting in real time.</dd>
-          </dl>
-        </article>
+      <h1 class="hero-name">
+        <span class="hero-name-line">Sajan</span>
+        <span class="hero-name-line">Maharjan</span>
+      </h1>
 
-        <article class="col">
-          <h3>What I build</h3>
-          <dl>
-            <dt>MCP tooling</dt>
-            <dd><a href="https://github.com/mhzsajan/AbleBridgePlus">AbleBridgePlus</a> — an MCP server that gives any AI assistant 475 tools over Ableton Live.</dd>
-            <dt>OSC / MIDI integration</dt>
-            <dd>Custom automation pipelines that keep audio, video and lighting in step with the performance.</dd>
-            <dt>Custom hardware</dt>
-            <dd>Interfaces designed and built to operate the band's gear, plus the debugging that keeps it working.</dd>
-            <dt>Web &amp; systems</dt>
-            <dd>WordPress and WooCommerce, Cloudflare and LiteSpeed, plugin and theme repair, incident response.</dd>
-            <dt>Procurement</dt>
-            <dd>Sourcing, purchasing and import logistics for all technical equipment.</dd>
-          </dl>
-        </article>
+      <p class="hero-band">for <strong>Deepak Bajracharya &amp; The Rhythm Band</strong></p>
+
+      <p class="hero-hook">I run the show, then build the tools it needed.</p>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#projects">See the work</a>
+        <a class="btn btn-ghost" href="mailto:mhzsajan@gmail.com">Get in touch</a>
       </div>
+    </div>
+
+    <figure class="hero-shot reveal">
+      <img src="assets/profile.jpg" alt="Sajan Maharjan" width="480" height="480" loading="eager" decoding="async">
+      <figcaption>FOH &middot; Kathmandu</figcaption>
+    </figure>
+  </section>
+
+  <!-- ════════════════════════════════ STATEMENT ═══════════════════════════════ -->
+  <section class="section statement">
+    <div class="wrap">
+      <p class="statement-lead reveal">
+        I&rsquo;m the person who makes the show happen &mdash; and then, usually at
+        2am after load-out, writes the software it was missing.
+      </p>
+      <p class="statement-sub reveal">
+        Self-taught, three years in, every tour and every show. Most of what&rsquo;s on this
+        page exists because a show needed it and nothing off the shelf did.
+      </p>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════ THE RIG ═══════════════════════════════ -->
+  <!-- ═════════════════════════════════ THE WORK ════════════════════════════════ -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <p class="kicker"><span class="kicker-n">01</span> The work</p>
+      <h2 class="h2">Seven things, every show</h2>
+      <p class="lede reveal">
+        This is live responsibility, not a list of things I once did. The band plays;
+        this is what has to be true before they can.
+      </p>
+
+      <ul class="duties">
+        <li class="reveal">
+          <span class="duty-n">01</span>
+          <h3>Show control</h3>
+          <p>Ableton Live with AbleSet &mdash; setlists, click tracks, tempo-synced backing that never drifts.</p>
+        </li>
+        <li class="reveal">
+          <span class="duty-n">02</span>
+          <h3>Vocals &amp; guitar</h3>
+          <p>TC-Helicon VoiceLive 3 Extreme, with presets switching automatically as the setlist moves.</p>
+        </li>
+        <li class="reveal">
+          <span class="duty-n">03</span>
+          <h3>Front of house</h3>
+          <p>Behringer WING &mdash; mixing the room and the monitor mix, alongside the band&rsquo;s engineer.</p>
+        </li>
+        <li class="reveal">
+          <span class="duty-n">04</span>
+          <h3>Video</h3>
+          <p>VideoSync2 &mdash; backdrop video, lyric overlays and live camera feeds, all locked to the tempo.</p>
+        </li>
+        <li class="reveal">
+          <span class="duty-n">05</span>
+          <h3>Lighting</h3>
+          <p>MaestroDMX running audio-reactive, syncing to the performance instead of a cue list.</p>
+        </li>
+        <li class="reveal">
+          <span class="duty-n">06</span>
+          <h3>Timecode</h3>
+          <p>LTC generated live and distributed to the visuals and the lighting desk as one reference.</p>
+        </li>
+        <li class="reveal">
+          <span class="duty-n">07</span>
+          <h3>Cameras</h3>
+          <p>iPhone over NDI and Camo, Kinect, DSLRs and GoPros, cut on a Rodecaster Video.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════ THE RIG ═════════════════════════════════ -->
   <section class="section alt" id="rig">
     <div class="wrap">
-      <p class="kicker"><span class="num">02</span> Signal flow</p>
-      <h2>The show rig</h2>
-      <p class="lede">
-        One clock, one setlist, everything downstream of it. Audio, video and
-        lighting all hang off Ableton, with LTC timecode as the independent
-        reference the visuals and the lighting desk can both lock to.
+      <p class="kicker"><span class="kicker-n">02</span> Signal flow</p>
+      <h2 class="h2">One clock, one setlist</h2>
+      <p class="lede reveal">
+        Everything downstream hangs off Ableton, with LTC timecode as the independent
+        reference both the visuals and the lighting desk can lock to.
       </p>
 
-      <div class="rig" role="img" aria-label="Signal flow: Ableton Live with an AbleSet setlist sends click tracks to the monitor mix, backing tracks to the main PA, MIDI to VoiceLive 3 for FOH and monitors, MIDI to VideoSync2 for the projector, and MIDI to MaestroDMX for autonomous lighting. An LTC timecode generator independently feeds VideoSync2 and MaestroDMX.">
-
-        <div class="rig-group">
-          <h3>Ableton Live <small>AbleSet setlist</small></h3>
+      <div class="rig" role="img" aria-label="Signal flow. Ableton Live with an AbleSet setlist sends click tracks to the monitor mix, backing tracks to the main PA, MIDI to VoiceLive 3 for FOH and monitors, MIDI to VideoSync2 for the projector, and MIDI to MaestroDMX for lighting. A separate LTC timecode generator feeds both VideoSync2 and MaestroDMX.">
+        <div class="rig-col reveal">
+          <h3 class="rig-h">Ableton Live <span>AbleSet setlist</span></h3>
           <ul class="flow">
-            <li><span>click tracks</span><i aria-hidden="true"></i><b>monitor mix</b></li>
-            <li><span>backing tracks</span><i aria-hidden="true"></i><b>PA · FOH</b></li>
-            <li><span>MIDI</span><i aria-hidden="true"></i><b>VoiceLive 3 → FOH / monitors</b></li>
-            <li><span>MIDI</span><i aria-hidden="true"></i><b>VideoSync2 → projector</b></li>
-            <li><span>MIDI</span><i aria-hidden="true"></i><b>MaestroDMX → lighting</b></li>
+            <li><span>click tracks</span><b>monitor mix</b></li>
+            <li><span>backing tracks</span><b>PA &middot; FOH</b></li>
+            <li><span>MIDI</span><b>VoiceLive 3 &rarr; FOH / monitors</b></li>
+            <li><span>MIDI</span><b>VideoSync2 &rarr; projector</b></li>
+            <li><span>MIDI</span><b>MaestroDMX &rarr; lighting</b></li>
           </ul>
         </div>
 
-        <div class="rig-group">
-          <h3>LTC timecode <small>independent reference</small></h3>
+        <div class="rig-col reveal">
+          <h3 class="rig-h">LTC timecode <span>independent reference</span></h3>
           <ul class="flow">
-            <li><span>timecode</span><i aria-hidden="true"></i><b>VideoSync2 · backdrop + live cam</b></li>
-            <li><span>timecode</span><i aria-hidden="true"></i><b>MaestroDMX · audio-reactive DMX</b></li>
+            <li><span>timecode</span><b>VideoSync2 &middot; backdrop + live cam</b></li>
+            <li><span>timecode</span><b>MaestroDMX &middot; audio-reactive DMX</b></li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════ PROJECTS ══════════════════════════════ -->
-  <section class="section" id="projects">
+  <!-- ═════════════════════════════════ SHOTS ══════════════════════════════════ -->
+  <section class="section shots-section">
     <div class="wrap">
-      <p class="kicker"><span class="num">03</span> Output</p>
-      <h2>What I'm building</h2>
+      <p class="kicker"><span class="kicker-n">03</span> On the night</p>
+      <h2 class="h2">What it actually looks like</h2>
+      <p class="lede reveal">
+        Drop photos into <code>assets/shots/</code> using the filenames below and they
+        appear here &mdash; no code change needed.
+      </p>
 
-      <h3 class="sub">Open source</h3>
-      <ol class="entries">
-        <li>
-          <a href="https://github.com/mhzsajan/AbleBridgePlus" target="_blank" rel="noopener">
-            <span class="e-name">AbleBridgePlus</span>
-            <span class="e-meta">Python · MCP · Ableton</span>
-            <span class="e-body">
-              An MCP server that gives any AI assistant — Claude, OpenCode,
-              Cursor — 475 tools over Ableton Live. Local-first, no cloud, MIT
-              licensed. Born from automating my own show prep.
-            </span>
-            <span class="e-go">Repository →</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://mhzsajan.github.io/songtimer/" target="_blank" rel="noopener">
-            <span class="e-name">songtimer</span>
-            <span class="e-meta">HTML · offline</span>
-            <span class="e-body">
-              Tap lyric timings while a song plays, nudge them, preview
-              karaoke-style, and export a standard <code>.lrc</code>. Audio
-              never leaves the device.
-            </span>
-            <span class="e-go">Try it live →</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://mhzsajan.github.io/AbleBridgePlus/" target="_blank" rel="noopener">
-            <span class="e-name">AbleBridgePlus site</span>
-            <span class="e-meta">HTML</span>
-            <span class="e-body">
-              A plain-English tour of the MCP bridge and what it can do, for
-              anyone who'd rather not read a README first.
-            </span>
-            <span class="e-go">Visit →</span>
-          </a>
-        </li>
-      </ol>
-
-      <h3 class="sub">Private <small>the band's tooling, not open yet</small></h3>
-      <ul class="entries priv">
-        <li>
-          <span class="e-name">stagecraft</span>
-          <span class="e-meta">Python</span>
-          <span class="e-body">Live-show pipeline wiring Ableton, AbleSet, Videosync2 and TouchDesigner into a single performance system.</span>
-        </li>
-        <li>
-          <span class="e-name">nepali-lyric-video-maker</span>
-          <span class="e-meta">HTML</span>
-          <span class="e-body">Whisper-timed Nepali lyric videos — word-by-word karaoke MP4s, with shadow-key output for transparent live overlays. Handles pre-Unicode Preeti-era fonts.</span>
-        </li>
-        <li>
-          <span class="e-name">StageCraft-Graphified <em>/ -RE</em></span>
-          <span class="e-meta">HTML · Python</span>
-          <span class="e-body">Graphical companion and reverse-engineering toolkit for the pipeline.</span>
-        </li>
-        <li>
-          <span class="e-name">switchgod-bazar <em>/ pickbazar</em></span>
-          <span class="e-meta">TypeScript</span>
-          <span class="e-body">E-commerce platform work.</span>
-        </li>
-      </ul>
+      <div class="shots">
+        <figure class="shot shot-tall reveal" style="--img:url(assets/shots/foh.jpg)">
+          <figcaption>Front of house</figcaption>
+        </figure>
+        <figure class="shot reveal" style="--img:url(assets/shots/lights.jpg)">
+          <figcaption>Lighting rig in service</figcaption>
+        </figure>
+        <figure class="shot reveal" style="--img:url(assets/shots/stage.jpg)">
+          <figcaption>The band onstage</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════════ GEAR ════════════════════════════════ -->
-  <section class="section alt" id="gear">
+  <!-- ════════════════════════════════ PROJECTS ════════════════════════════════ -->
+  <section class="section alt" id="projects">
     <div class="wrap">
-      <p class="kicker"><span class="num">04</span> Toolkit</p>
-      <h2>What I work with</h2>
+      <p class="kicker"><span class="kicker-n">04</span> Output</p>
+      <h2 class="h2">Things I built</h2>
+      <p class="lede reveal">
+        If a show needed it and I couldn&rsquo;t buy it, I wrote it. Most of this is
+        open source.
+      </p>
 
-      <div class="gear">
-        <div class="gear-col">
-          <h4>Live &amp; show</h4>
+      <ul class="cards">
+        <li class="card reveal">
+          <a href="https://github.com/mhzsajan/AbleBridgePlus" target="_blank" rel="noopener">
+            <p class="card-meta"><span class="card-tag">Open source</span><span class="card-lang">Python</span></p>
+            <h3 class="card-name">AbleBridgePlus</h3>
+            <p class="card-body">An MCP server that gives any AI assistant &mdash; Claude, OpenCode, Cursor &mdash; 475 tools over Ableton Live. Local-first, MIT. Born from automating my own show prep.</p>
+            <p class="card-go">Repository <span aria-hidden="true">&rarr;</span></p>
+          </a>
+        </li>
+        <li class="card reveal">
+          <a href="https://mhzsajan.github.io/songtimer/" target="_blank" rel="noopener">
+            <p class="card-meta"><span class="card-tag">Live</span><span class="card-lang">HTML</span></p>
+            <h3 class="card-name">songtimer</h3>
+            <p class="card-body">Tap lyric timings while a song plays, nudge them, preview karaoke-style, export a standard <code>.lrc</code>. Audio never leaves the device.</p>
+            <p class="card-go">Try it <span aria-hidden="true">&rarr;</span></p>
+          </a>
+        </li>
+        <li class="card reveal">
+          <a href="https://github.com/mhzsajan/td-live-bridge" target="_blank" rel="noopener">
+            <p class="card-meta"><span class="card-tag">Open source</span><span class="card-lang">Python</span></p>
+            <h3 class="card-name">td-live-bridge</h3>
+            <p class="card-body">TouchDesigner to Ableton Live. Ableton&rsquo;s tempo, transport and clips exposed as CHOP channels, so the visuals can read the band&rsquo;s clock directly.</p>
+            <p class="card-go">Repository <span aria-hidden="true">&rarr;</span></p>
+          </a>
+        </li>
+        <li class="card reveal">
+          <a href="https://github.com/mhzsajan/huekeys" target="_blank" rel="noopener">
+            <p class="card-meta"><span class="card-tag">Open source</span><span class="card-lang">Kotlin</span></p>
+            <h3 class="card-name">huekeys</h3>
+            <p class="card-body">An Android keyboard that tints its keys to match the app you&rsquo;re typing into. Flat two-tone per-app colours, no root, no Xposed.</p>
+            <p class="card-go">Repository <span aria-hidden="true">&rarr;</span></p>
+          </a>
+        </li>
+        <li class="card reveal">
+          <a href="https://github.com/mhzsajan/lyric-studio" target="_blank" rel="noopener">
+            <p class="card-meta"><span class="card-tag">Open source</span><span class="card-lang">JavaScript</span></p>
+            <h3 class="card-name">lyric-studio</h3>
+            <p class="card-body">A <code>.lrc</code> and an audio file in, a finished lyric video out. Built for VideoSync2 overlays on stage, with a hard font gate and a render-critique loop.</p>
+            <p class="card-go">Repository <span aria-hidden="true">&rarr;</span></p>
+          </a>
+        </li>
+        <li class="card reveal">
+          <a href="https://github.com/mhzsajan/nepali-legacy-fonts" target="_blank" rel="noopener">
+            <p class="card-meta"><span class="card-tag">Open source</span><span class="card-lang">Python</span></p>
+            <h3 class="card-name">nepali-legacy-fonts</h3>
+            <p class="card-body">Makes any legacy Nepali font render in Chromium by generating that font&rsquo;s own key-to-Unicode layout. Preeti-era fonts, no longer unreadable.</p>
+            <p class="card-go">Repository <span aria-hidden="true">&rarr;</span></p>
+          </a>
+        </li>
+        <li class="card reveal">
+          <a href="https://github.com/mhzsajan/jptest" target="_blank" rel="noopener">
+            <p class="card-meta"><span class="card-tag">Client work</span><span class="card-lang">JavaScript</span></p>
+            <h3 class="card-name">jptest</h3>
+            <p class="card-body">A static mock-test platform for Japanese language proficiency, nursing care and food service certification exams. Vanilla HTML, CSS and JavaScript.</p>
+            <p class="card-go">Repository <span aria-hidden="true">&rarr;</span></p>
+          </a>
+        </li>
+      </ul>
+
+      <p class="foot-note reveal">
+        Also private: <code>stagecraft</code>, <code>switchgod-bazar</code> and the
+        band&rsquo;s internal tooling &mdash; real work, not open yet.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════ TOOLKIT ═════════════════════════════════ -->
+  <section class="section" id="toolkit">
+    <div class="wrap">
+      <p class="kicker"><span class="kicker-n">05</span> Toolkit</p>
+      <h2 class="h2">What I work with</h2>
+
+      <div class="toolkit">
+        <div class="tk reveal">
+          <h3>Live &amp; show</h3>
           <ul>
             <li>Ableton Live 11 / 12</li>
-            <li>AbleSet · Showsync</li>
+            <li>AbleSet &middot; Showsync</li>
             <li>VideoSync2</li>
             <li>TC-Helicon VoiceLive 3 Extreme</li>
             <li>Behringer WING</li>
-            <li>LTC Timecode · OSC · MIDI</li>
-            <li>MaestroDMX · Maestro Smart</li>
+            <li>LTC timecode &middot; OSC &middot; MIDI</li>
+            <li>MaestroDMX &middot; Maestro Smart</li>
           </ul>
         </div>
-        <div class="gear-col">
-          <h4>Video &amp; capture</h4>
+        <div class="tk reveal">
+          <h3>Video &amp; capture</h3>
           <ul>
             <li>Rodecaster Video</li>
             <li>iPhone (NDI / Camo)</li>
             <li>Kinect</li>
-            <li>DSLR · GoPro</li>
+            <li>DSLR &middot; GoPro</li>
           </ul>
         </div>
-        <div class="gear-col">
-          <h4>Building</h4>
+        <div class="tk reveal">
+          <h3>Building</h3>
           <ul>
-            <li>Python · MCP servers</li>
+            <li>Python &middot; MCP servers</li>
             <li>OSC / MIDI automation</li>
             <li>Custom hardware</li>
             <li>LLM &amp; agent integration</li>
+            <li>Remotion &middot; video pipelines</li>
           </ul>
         </div>
-        <div class="gear-col">
-          <h4>Web &amp; infrastructure</h4>
+        <div class="tk reveal">
+          <h3>Web &amp; infrastructure</h3>
           <ul>
-            <li>WordPress · WooCommerce</li>
-            <li>Elementor · Woodmart</li>
-            <li>Cloudflare · LiteSpeed</li>
+            <li>WordPress &middot; WooCommerce</li>
+            <li>Elementor &middot; Woodmart</li>
+            <li>Cloudflare &middot; LiteSpeed</li>
             <li>Security scanning &amp; response</li>
           </ul>
         </div>
@@ -310,46 +333,45 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════ CONTACT ═══════════════════════════════ -->
-  <section class="section" id="contact">
-    <div class="wrap narrow">
-      <p class="kicker"><span class="num">05</span> Contact</p>
-      <h2>Let's talk</h2>
-      <p class="lede">
-        Open to working on live-show automation, Ableton tooling, and music tech
-        for artists who'd rather not click through a setlist by hand.
+  <!-- ═════════════════════════════════ CONTACT ═════════════════════════════════ -->
+  <section class="section alt" id="contact">
+    <div class="wrap">
+      <p class="kicker"><span class="kicker-n">06</span> Contact</p>
+      <h2 class="h2">Let&rsquo;s talk</h2>
+      <p class="lede reveal">
+        Open to working on live-show automation, Ableton tooling, and music tech for
+        artists who&rsquo;d rather not click through a setlist by hand.
       </p>
 
       <ul class="contact">
-        <li>
+        <li class="reveal">
           <a href="mailto:mhzsajan@gmail.com">
             <span class="c-kind">Email</span>
             <span class="c-val">mhzsajan@gmail.com</span>
-            <span class="c-go" aria-hidden="true">→</span>
+            <span class="c-go" aria-hidden="true">&rarr;</span>
           </a>
         </li>
-        <li>
+        <li class="reveal">
           <a href="https://github.com/mhzsajan" target="_blank" rel="noopener">
             <span class="c-kind">GitHub</span>
             <span class="c-val">github.com/mhzsajan</span>
-            <span class="c-go" aria-hidden="true">→</span>
+            <span class="c-go" aria-hidden="true">&rarr;</span>
           </a>
         </li>
       </ul>
     </div>
   </section>
+
 </main>
 
 <footer class="footer">
   <div class="wrap">
     <p class="foot-brand">Sajan Maharjan</p>
-    <p class="foot-note">
-      Technical Director, Deepak Bajracharya &amp; The Rhythm Band.
-      Self-taught, hands-on. Built and maintained by Sajan Maharjan · MIT.
-    </p>
+    <p class="foot-line">Technical Director, Deepak Bajracharya &amp; The Rhythm Band &middot; Kathmandu</p>
+    <p class="foot-note">Built and maintained by Sajan Maharjan &middot; MIT</p>
   </div>
 </footer>
 
-<script src="assets/site.js?v=2"></script>
+<script src="assets/site.js?v=4"></script>
 </body>
 </html>
