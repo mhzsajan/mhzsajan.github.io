@@ -16,16 +16,14 @@
 <meta property="og:image" content="https://mhzsajan.github.io/assets/profile.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="assets/favicon.svg?v=7" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.svg?v=10" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/alfaslabone-latin-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/raleway-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/site.css?v=9">
+<link rel="stylesheet" href="assets/site.css?v=10">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body class="is-closed">
 
-<!-- Posterize + duotone, so a photograph reads as flat vector art on the cover.
-     Original filter chain. -->
 <svg class="svg-defs" aria-hidden="true" focusable="false" width="0" height="0">
   <defs>
     <filter id="flat-duotone" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
@@ -46,76 +44,76 @@
 
 <div class="stage" id="stage">
   <div class="stage-wood" aria-hidden="true"></div>
+  <div class="stage-vignette" aria-hidden="true"></div>
 
   <div class="book-wrap">
-    <div class="book" id="book" data-open="false">
+    <div class="book" id="book" data-turned="0">
 
-      <div class="book-block" aria-hidden="true"></div>
+      <!-- the block of paper behind everything: visible as the fore-edge -->
+      <div class="book-block" aria-hidden="true">
+        <div class="block-edges"></div>
+      </div>
 
-      <!-- ── LEFT LEAF ─ back = the cover, front = the left page ─────────── -->
-      <div class="leaf leaf-left">
-
-        <div class="face face-front page">
-          <div class="page-pad">
-
-            <p class="pg-kicker">01 — The person</p>
-            <figure class="portrait">
-              <img src="assets/profile.jpg" alt="Portrait of Sajan Maharjan" width="480" height="480" decoding="async" loading="lazy">
-            </figure>
-            <p class="pg-statement">
-              I&rsquo;m the person who makes the show happen &mdash; and then, usually
-              at 2am after load-out, writes the software it was missing.
-            </p>
-            <p class="pg-small">Self-taught. Three years in. Every tour, every show.</p>
-
-            <p class="pg-kicker">02 — The work</p>
-            <h2 class="pg-h">Seven things, every show</h2>
-            <p class="pg-small pg-lede">Live responsibility, not a list of things I once did.</p>
-
-            <ul class="duties">
-              <li><span class="n">01</span><div><b>Show control</b><p>Ableton Live + AbleSet — setlists, click, backing.</p></div></li>
-              <li><span class="n">02</span><div><b>Vocals &amp; guitar</b><p>VoiceLive 3 Extreme, presets synced to the setlist.</p></div></li>
-              <li><span class="n">03</span><div><b>Front of house</b><p>Behringer WING — room and monitors.</p></div></li>
-              <li><span class="n">04</span><div><b>Video</b><p>VideoSync2 — backdrop, lyrics, live cam, tempo-locked.</p></div></li>
-              <li><span class="n">05</span><div><b>Lighting</b><p>MaestroDMX, audio-reactive rather than cue-chasing.</p></div></li>
-              <li><span class="n">06</span><div><b>Timecode</b><p>LTC generated live, out to visuals and lighting.</p></div></li>
-              <li><span class="n">07</span><div><b>Cameras</b><p>iPhone NDI/Camo, Kinect, DSLRs, GoPros.</p></div></li>
-            </ul>
-
-          </div>
-        </div>
-
-        <div class="face face-back cover">
+      <!-- ══ LEAF 1 ══ back of it is the first page ═══════════════════════ -->
+      <div class="leaf" data-idx="0">
+        <div class="face face-front cover">
           <div class="cover-inner">
             <h1 class="cover-name"><span>Sajan</span> <span>Maharjan</span></h1>
             <p class="cover-role">Technical Director<br>Deepak Bajracharya &amp; The Rhythm Band</p>
-
             <ul class="cover-skills">
               <li><b>I run</b> <span>the live show</span></li>
               <li><b>I build</b> <span>the tools it needed</span></li>
               <li><b>I automate</b> <span>timecode, video &amp; light</span></li>
               <li><b>Based in</b> <span>Kathmandu, Nepal</span></li>
             </ul>
-
             <button class="cover-open" id="openBtn" type="button" aria-expanded="false" aria-controls="book">
               <span class="cover-open-text">Open</span>
             </button>
-
             <div class="cover-foot">
-              <span class="cover-foot-item">mhzsajan@gmail.com</span>
+              <span>mhzsajan@gmail.com</span>
               <span class="cover-foot-sep" aria-hidden="true"></span>
-              <a class="cover-foot-item" href="https://github.com/mhzsajan" target="_blank" rel="noopener">github.com/mhzsajan</a>
+              <a href="https://github.com/mhzsajan" target="_blank" rel="noopener">github.com/mhzsajan</a>
             </div>
           </div>
         </div>
 
+        <div class="face face-back page">
+          <div class="page-pad">
+            <p class="pg-kicker">01 — The person</p>
+            <figure class="portrait">
+              <img src="assets/profile.jpg" alt="Portrait of Sajan Maharjan" width="480" height="480" decoding="async" loading="lazy">
+            </figure>
+            <p class="pg-statement">I&rsquo;m the person who makes the show happen &mdash; and then, usually at 2am after load-out, writes the software it was missing.</p>
+            <p class="pg-small">Self-taught. Three years in. Every tour, every show.</p>
+
+            <div class="pg-sign">
+              <span class="pg-sign-rule" aria-hidden="true"></span>
+              <span class="pg-sign-name">Sajan Maharjan</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- ── RIGHT LEAF ─ front = the right page ─────────────────────────── -->
-      <div class="leaf leaf-right">
+      <!-- ══ LEAF 2 ═══════════════════════════════════════════════════════ -->
+      <div class="leaf" data-idx="1">
         <div class="face face-front page">
           <div class="page-pad">
-
+            <p class="pg-kicker">02 — The work</p>
+            <h2 class="pg-h">Seven things, every show</h2>
+            <p class="pg-small pg-lede">Live responsibility, not a list of things I once did.</p>
+            <ul class="duties">
+              <li><span class="n">01</span><div><b>Show control</b><p>Ableton Live + AbleSet — setlists, click, backing.</p></div></li>
+              <li><span class="n">02</span><div><b>Vocals &amp; guitar</b><p>VoiceLive 3 Extreme, presets synced to the setlist.</p></div></li>
+              <li><span class="n">03</span><div><b>Front of house</b><p>Behringer WING — room and monitors.</p></div></li>
+              <li><span class="n">04</span><div><b>Video</b><p>VideoSync2 — backdrop, lyrics, live cam.</p></div></li>
+              <li><span class="n">05</span><div><b>Lighting</b><p>MaestroDMX, audio-reactive.</p></div></li>
+              <li><span class="n">06</span><div><b>Timecode</b><p>LTC live, out to visuals and lighting.</p></div></li>
+              <li><span class="n">07</span><div><b>Cameras</b><p>iPhone NDI/Camo, Kinect, DSLRs, GoPros.</p></div></li>
+            </ul>
+          </div>
+        </div>
+        <div class="face face-back page">
+          <div class="page-pad">
             <p class="pg-kicker">03 — The rig</p>
             <h2 class="pg-h">One clock, one setlist</h2>
             <div class="rig">
@@ -137,7 +135,15 @@
                 </ul>
               </div>
             </div>
+            <p class="pg-note">Everything downstream hangs off Ableton, with LTC as the reference both the visuals and the lighting desk lock to.</p>
+          </div>
+        </div>
+      </div>
 
+      <!-- ══ LEAF 3 ═══════════════════════════════════════════════════════ -->
+      <div class="leaf" data-idx="2">
+        <div class="face face-front page">
+          <div class="page-pad">
             <p class="pg-kicker">04 — Things I built</p>
             <ul class="projects">
               <li><a href="https://github.com/mhzsajan/AbleBridgePlus" target="_blank" rel="noopener"><b>AbleBridgePlus</b><span>Python</span><p>475 MCP tools over Ableton Live. MIT.</p></a></li>
@@ -146,34 +152,53 @@
               <li><a href="https://github.com/mhzsajan/huekeys" target="_blank" rel="noopener"><b>huekeys</b><span>Kotlin</span><p>Android keyboard that tints per app.</p></a></li>
               <li><a href="https://github.com/mhzsajan/lyric-studio" target="_blank" rel="noopener"><b>lyric-studio</b><span>JS</span><p>.lrc + audio in, lyric video out.</p></a></li>
               <li><a href="https://github.com/mhzsajan/nepali-legacy-fonts" target="_blank" rel="noopener"><b>nepali-legacy-fonts</b><span>Python</span><p>Renders pre-Unicode Nepali fonts.</p></a></li>
-              <li><a href="https://github.com/mhzsajan/jptest" target="_blank" rel="noopener"><b>jptest</b><span>JS</span><p>Mock-test platform for certification exams.</p></a></li>
+              <li><a href="https://github.com/mhzsajan/jptest" target="_blank" rel="noopener"><b>jptest</b><span>JS</span><p>Mock-test platform for exams.</p></a></li>
             </ul>
-
+          </div>
+        </div>
+        <div class="face face-back page">
+          <div class="page-pad">
             <p class="pg-kicker">05 — Toolkit</p>
             <dl class="toolkit">
-              <div><dt>Live</dt><dd>Ableton · AbleSet · VideoSync2 · VoiceLive 3 · WING · LTC/OSC/MIDI · MaestroDMX</dd></div>
+              <div><dt>Live</dt><dd>Ableton 11/12 · AbleSet · VideoSync2 · VoiceLive 3 · Behringer WING · LTC / OSC / MIDI · MaestroDMX</dd></div>
               <div><dt>Video</dt><dd>Rodecaster · iPhone NDI/Camo · Kinect · DSLR · GoPro</dd></div>
-              <div><dt>Build</dt><dd>Python · MCP servers · OSC/MIDI · custom hardware · Remotion</dd></div>
-              <div><dt>Web</dt><dd>WordPress/WooCommerce · Cloudflare · LiteSpeed</dd></div>
+              <div><dt>Build</dt><dd>Python · MCP servers · OSC/MIDI automation · custom hardware · Remotion</dd></div>
+              <div><dt>Web</dt><dd>WordPress / WooCommerce · Cloudflare · LiteSpeed</dd></div>
             </dl>
+          </div>
+        </div>
+      </div>
 
+      <!-- ══ LEAF 4 — never turned; it is the back of the book ═══════════ -->
+      <div class="leaf leaf-last" data-idx="3">
+        <div class="face face-front backcover">
+          <div class="page-pad backcover-pad">
             <p class="pg-kicker">06 — Say hello</p>
+            <h2 class="pg-h">Let&rsquo;s talk</h2>
+            <p class="pg-small">Open to live-show automation, Ableton tooling, and music tech for artists who&rsquo;d rather not click through a setlist by hand.</p>
             <ul class="pg-contact">
               <li><a href="mailto:mhzsajan@gmail.com">mhzsajan@gmail.com</a></li>
               <li><a href="https://github.com/mhzsajan" target="_blank" rel="noopener">github.com/mhzsajan</a></li>
+              <li><a href="https://mhzsajan.github.io/songtimer/" target="_blank" rel="noopener">songtimer — try it live</a></li>
             </ul>
-
+            <p class="pg-colophon">Set in Alfa Slab One &amp; Nixie One. Built and maintained by Sajan Maharjan &middot; MIT</p>
           </div>
         </div>
-        <div class="face face-back page page-edge" aria-hidden="true"></div>
+        <div class="face face-back page endpaper" aria-hidden="true"></div>
       </div>
 
+    </div>
+
+    <div class="turn-ctl" id="turnCtl">
+      <button class="turn-btn" id="prevBtn" type="button" aria-label="Previous page">&#8249;</button>
+      <span class="turn-count" id="turnCount">Cover</span>
+      <button class="turn-btn" id="nextBtn" type="button" aria-label="Next page">&#8250;</button>
     </div>
 
     <p class="stage-hint" id="stageHint">Tap <b>Open</b> to turn the page</p>
   </div>
 </div>
 
-<script src="assets/site.js?v=7"></script>
+<script src="assets/site.js?v=10"></script>
 </body>
 </html>
