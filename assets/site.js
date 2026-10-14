@@ -1,60 +1,66 @@
-/* Sajan Maharjan — personal site behaviour.
-   Progressive enhancement throughout: every element on this page is visible
-   with scripting disabled, because the hiding styles are scoped to .js on
-   <html> and that class is only added by the inline head script. */
+/* Sajan Maharjan — book behaviour.
+   Progressive enhancement: with scripting off the cover hides and the detail
+   below is simply visible, so the page still works. */
 (function () {
   'use strict';
 
-  /* ── sticky nav ─────────────────────────────────────────────────────── */
-  var nav = document.getElementById('nav');
-  if (nav) {
-    var ticking = false;
-    var onScroll = function () {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function () {
-        nav.classList.toggle('stuck', window.scrollY > 8);
-        ticking = false;
-      });
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
-
-  /* ── mobile menu ────────────────────────────────────────────────────── */
-  var toggle = document.getElementById('navToggle');
-  var links = document.getElementById('navLinks');
-  if (toggle && links) {
-    var setOpen = function (open) {
-      links.classList.toggle('open', open);
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    };
-    toggle.addEventListener('click', function () {
-      setOpen(!links.classList.contains('open'));
-    });
-    links.addEventListener('click', function (e) {
-      if (e.target.closest('a')) setOpen(false);
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && links.classList.contains('open')) {
-        setOpen(false);
-        toggle.focus();
-      }
-    });
-  }
-
-  /* ── reveal on scroll ───────────────────────────────────────────────── */
-  var targets = document.querySelectorAll('.reveal');
-  if (!targets.length) return;
+  var book  = document.getElementById('book');
+  var btn   = document.getElementById('openBtn');
+  if (!book || !btn) return;
 
   var reduce = window.matchMedia &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // No observer, or reduced motion requested: show everything, skip the work.
+  function setOpen(open) {
+    book.setAttribute('data-open', open ? 'true' : 'false');
+    document.body.classList.toggle('is-open', open);
+    document.body.classList.toggle('is-closed', !open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    var text = btn.querySelector('.cover-open-text');
+    if (text) text.textContent = open ? 'Close' : 'Open';
+    if (open) {
+      // let the flip finish before moving focus / scrolling anywhere
+      window.setTimeout(function () {
+        var first = document.querySelector('#detail .h2');
+        if (first) first.setAttribute('tabindex', '-1');
+      }, reduce ? 0 : 950);
+    }
+  }
+
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    setOpen(book.getAttribute('data-open') !== 'true');
+  });
+
+  // Tapping the open book closes it again.
+  book.addEventListener('click', function (e) {
+    if (book.getAttribute('data-open') !== 'true') return;
+    if (e.target.closest('a, button')) return;
+    setOpen(false);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && book.getAttribute('data-open') === 'true') {
+      setOpen(false);
+      btn.focus();
+    }
+  });
+
+  if (reduce) {
+    // CSS already flattens the book; make the state match so nothing lies.
+    setOpen(true);
+  }
+
+  /* ── reveal detail sections on scroll (inert if reduced motion) ───────── */
+  var targets = document.querySelectorAll('#detail .duties > li, #detail .rig-col, ' +
+    '#detail .shot, #detail .card, #detail .tk');
+  if (!targets.length) return;
+
   if (reduce || !('IntersectionObserver' in window)) {
     Array.prototype.forEach.call(targets, function (el) { el.classList.add('in'); });
     return;
   }
+  targets.forEach(function (el) { el.classList.add('reveal'); });
 
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
@@ -62,15 +68,7 @@
       entry.target.classList.add('in');
       io.unobserve(entry.target);
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+  }, { threshold: 0.06, rootMargin: '0px 0px -6% 0px' });
 
   Array.prototype.forEach.call(targets, function (el) { io.observe(el); });
-
-  /* Safety net: if anything above failed to run, never leave the page blank.
-     Anything still hidden after 3s is revealed. */
-  setTimeout(function () {
-    Array.prototype.forEach.call(targets, function (el) {
-      if (!el.classList.contains('in')) el.classList.add('in');
-    });
-  }, 3000);
 })();
