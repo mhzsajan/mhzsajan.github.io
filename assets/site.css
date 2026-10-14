@@ -119,7 +119,11 @@ body.is-open .stage-hint { opacity: 0; pointer-events: none; }
   height: min(var(--page-h), 90vh);
   transform-style: preserve-3d;
   transform: translateX(calc(var(--page-w) / -2)) rotateX(3deg);
-  transition: transform .95s var(--ease);
+  /* The slide and the swing must not run together. A book does not travel
+     while it opens; the cover swings. So the recentre is a fast settle and
+     the rotation carries the motion. Running both for the full duration at
+     the same weight is what made this read as two things fighting. */
+  transition: transform .22s cubic-bezier(.2, .7, .3, 1);
 }
 .book[data-open="true"] { transform: translateX(0) rotateX(3deg); }
 
@@ -137,11 +141,24 @@ body.is-open .stage-hint { opacity: 0; pointer-events: none; }
 .leaf {
   position: absolute; top: 0; height: 100%;
   width: var(--page-w); transform-style: preserve-3d;
-  transition: transform .95s var(--ease);
+  /* the swing: slightly slower than the settle, and eased both ends so the
+     cover decelerates into place instead of stopping dead */
+  transition: transform .62s cubic-bezier(.34, .06, .2, 1);
 }
 .leaf-left  { left: 0; transform-origin: 100% 50%; transform: rotateY(-180deg); z-index: 3; }
 .leaf-right { left: calc(var(--page-w) + var(--gap)); transform-origin: 0% 50%; transform: rotateY(0); z-index: 2; }
 .book[data-open="true"] .leaf-left { transform: rotateY(0); }
+
+/* The spine. Without it the open spread reads as two separate cards rather
+   than one object with a fold down the middle. */
+.book[data-open="true"]::after {
+  content: ''; position: absolute; top: 0; bottom: 0;
+  left: calc(50% - 10px); width: 20px; z-index: 4;
+  pointer-events: none;
+  background: linear-gradient(90deg,
+    rgba(35,32,25,0) 0%, rgba(35,32,25,.14) 40%,
+    rgba(35,32,25,.30) 50%, rgba(35,32,25,.14) 60%, rgba(35,32,25,0) 100%);
+}
 
 .face {
   position: absolute; inset: 0; overflow: hidden; border-radius: 2px;
