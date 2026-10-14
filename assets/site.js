@@ -1,11 +1,11 @@
 /* Sajan Maharjan — book behaviour.
-   Progressive enhancement: with scripting off the cover hides and the detail
-   below is simply visible, so the page still works. */
+   Progressive enhancement: with scripting off the cover hides and the two
+   inside pages are simply visible, so the page still works. */
 (function () {
   'use strict';
 
-  var book  = document.getElementById('book');
-  var btn   = document.getElementById('openBtn');
+  var book = document.getElementById('book');
+  var btn  = document.getElementById('openBtn');
   if (!book || !btn) return;
 
   var reduce = window.matchMedia &&
@@ -18,13 +18,6 @@
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     var text = btn.querySelector('.cover-open-text');
     if (text) text.textContent = open ? 'Close' : 'Open';
-    if (open) {
-      // let the flip finish before moving focus / scrolling anywhere
-      window.setTimeout(function () {
-        var first = document.querySelector('#detail .h2');
-        if (first) first.setAttribute('tabindex', '-1');
-      }, reduce ? 0 : 950);
-    }
   }
 
   btn.addEventListener('click', function (e) {
@@ -46,29 +39,5 @@
     }
   });
 
-  if (reduce) {
-    // CSS already flattens the book; make the state match so nothing lies.
-    setOpen(true);
-  }
-
-  /* ── reveal detail sections on scroll (inert if reduced motion) ───────── */
-  var targets = document.querySelectorAll('#detail .duties > li, #detail .rig-col, ' +
-    '#detail .shot, #detail .card, #detail .tk');
-  if (!targets.length) return;
-
-  if (reduce || !('IntersectionObserver' in window)) {
-    Array.prototype.forEach.call(targets, function (el) { el.classList.add('in'); });
-    return;
-  }
-  targets.forEach(function (el) { el.classList.add('reveal'); });
-
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('in');
-      io.unobserve(entry.target);
-    });
-  }, { threshold: 0.06, rootMargin: '0px 0px -6% 0px' });
-
-  Array.prototype.forEach.call(targets, function (el) { io.observe(el); });
+  if (reduce) setOpen(true);   // CSS already flattens it; keep state honest
 })();
