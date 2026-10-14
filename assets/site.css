@@ -236,9 +236,9 @@ code {
 
 .hero-name {
   font-family: var(--display);
-  /* cqw = % of the .hero-in container. Fits "MAHARJAN" at every width from
-     320px up, including the narrow desktop hero column. */
-  font-size: clamp(2.9rem, 14cqw, 8.5rem);
+  /* cqw = % of the .hero-in container, which is now full width — the hero is
+     type only, so the name gets the whole measure. */
+  font-size: clamp(2.9rem, 15cqw, 10rem);
   font-weight: 800;
   line-height: .86;
   letter-spacing: -.035em;
@@ -283,29 +283,6 @@ code {
 .btn-primary:hover { background: var(--accent-bright); }
 .btn-ghost { border-color: var(--line-strong); color: var(--text); }
 .btn-ghost:hover { border-color: var(--text-dim); background: var(--surface); }
-
-/* hero photo */
-.hero-shot {
-  position: relative;
-  max-width: var(--maxw); margin: clamp(2.5rem, 7vw, 4.5rem) auto 0;
-  padding-inline: var(--gutter);
-}
-.hero-shot img {
-  width: 100%; max-width: 34rem;
-  aspect-ratio: 4 / 5; object-fit: cover;
-  border-radius: var(--s3);
-  border: 1px solid var(--line);
-  background: var(--surface);
-}
-.hero-shot figcaption {
-  position: absolute; left: var(--gutter); bottom: var(--s4);
-  font-family: var(--mono); font-size: .7rem; letter-spacing: .12em;
-  text-transform: uppercase; color: var(--text-dim);
-  background: rgba(11, 11, 13, .78);
-  backdrop-filter: blur(8px);
-  padding: .35rem .6rem; border-radius: 3px;
-  border: 1px solid var(--line);
-}
 
 /* ── sections ───────────────────────────────────────────────────────────── */
 .section { padding-block: clamp(3.5rem, 11vw, 8rem); }
@@ -549,22 +526,8 @@ code {
   .nav-links a { padding: var(--s2) var(--s4); border-left: 0; border-radius: 4px; }
   .nav-links a:hover { background: var(--surface); border-left: 0; }
 
-  /* hero becomes a two-column stage */
-  /* minmax(0,...) is required here: a bare 1fr floors the column at its
-     min-content width, and the oversized name would push this column past
-     100% and collapse the image to a few pixels. */
-  .hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
-    align-items: center;
-    gap: clamp(2rem, 5vw, 5rem);
-    padding-block: clamp(4rem, 9vw, 7rem);
-  }
-  .hero-in { padding-inline: 0; }
-  .hero-in { padding-left: var(--gutter); }
-  .hero-shot { margin: 0; padding-inline: 0; padding-right: var(--gutter); }
-  .hero-shot img { max-width: none; }
-  .hero-shot figcaption { left: 0; }
+  /* type-only hero: give it room to breathe rather than a second column */
+  .hero { padding-block: clamp(4rem, 11vw, 8rem); }
 
   .duties { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .shots { grid-template-columns: repeat(3, minmax(0, 1fr)); }
